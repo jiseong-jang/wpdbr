@@ -1,0 +1,15 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-02t08-05-04-992297",
+  "confirmedAt": "2025-12-02T08:05:04.992297",
+  "summary": {
+    "customerName": "김민수",
+    "customerAddress": null,
+    "menuName": "발렌타인 디너",
+    "menuStyle": null,
+    "menuItems": "와인(병)=4, 스테이크=1",
+    "deliveryTime": "2025-12-09T18:00:00",
+    "orderId": "order-2025-12-02t08-05-04-992297",
+    "orderTime": "2025-12-02T08:05:04.992297"
+  }
+}

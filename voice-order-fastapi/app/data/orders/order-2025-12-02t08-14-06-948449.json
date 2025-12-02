@@ -1,0 +1,15 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-02t08-14-06-948449",
+  "confirmedAt": "2025-12-02T08:14:06.948449",
+  "summary": {
+    "customerName": "김민수",
+    "customerAddress": null,
+    "menuName": "샴페인 축제 디너",
+    "menuStyle": "그랜드 스타일",
+    "menuItems": "샴페인=1, 바게트빵=4, 커피 포트=1, 와인(병)=1, 스테이크=2",
+    "deliveryTime": "2025-12-10T18:00:00",
+    "orderId": "order-2025-12-02t08-14-06-948449",
+    "orderTime": "2025-12-02T08:14:06.948449"
+  }
+}

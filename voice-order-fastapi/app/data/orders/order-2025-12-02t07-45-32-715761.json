@@ -1,0 +1,15 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-02t07-45-32-715761",
+  "confirmedAt": "2025-12-02T07:45:32.715761",
+  "summary": {
+    "customerName": "김민수",
+    "customerAddress": null,
+    "menuName": "발렌타인 디너",
+    "menuStyle": "심플 스타일",
+    "menuItems": "바게트빵=6, 샴페인=2, 작은 하트 모양과 큐피드가 장식된 접시=1, 와인=1, 스테이크=1",
+    "deliveryTime": "2025-12-10T18:00:00",
+    "orderId": "order-2025-12-02t07-45-32-715761",
+    "orderTime": "2025-12-02T07:45:32.715761"
+  }
+}

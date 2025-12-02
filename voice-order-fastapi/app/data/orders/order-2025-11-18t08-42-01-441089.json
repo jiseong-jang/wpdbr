@@ -1,0 +1,15 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-11-18t08-42-01-441089",
+  "confirmedAt": "2025-11-18T08:42:01.441089",
+  "summary": {
+    "customerName": "어머니",
+    "customerAddress": null,
+    "menuName": "잉글리시 디너",
+    "menuStyle": "그랜드 스타일",
+    "menuItems": "에그 스크램블=1, 베이컨=1, 기본 빵=1, 스테이크=1",
+    "deliveryTime": "2024-12-04T13:00:00",
+    "orderId": "order-2025-11-18t08-42-01-441089",
+    "orderTime": "2025-11-18T08:42:01.441089"
+  }
+}
