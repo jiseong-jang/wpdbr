@@ -2,6 +2,16 @@
 .env
 .env.local
 .env.*.local
+.env.*
+!.env.example
+
+# Spring Boot - 민감한 설정 파일
+backend/src/main/resources/application.yml
+backend/src/main/resources/application.properties
+backend/src/main/resources/application-*.yml
+backend/src/main/resources/application-*.properties
+!backend/src/main/resources/application.yml.example
+!backend/src/main/resources/application.properties.example
 
 # Java / Maven
 backend/target/
@@ -12,8 +22,35 @@ backend/.classpath
 backend/.project
 backend/.settings/
 *.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
 
 # Python
+**/.venv/
+**/venv/
+**/ENV/
+**/env/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.Python
+**/*.so
+**/*.egg
+**/*.egg-info/
+**/dist/
+**/build/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/htmlcov/
+**/.coverage
+**/coverage.xml
+**/*.cover
 voice-order-fastapi/.venv/
 voice-order-fastapi/__pycache__/
 voice-order-fastapi/**/__pycache__/
@@ -28,14 +65,30 @@ voice-order-fastapi/dist/
 voice-order-fastapi/build/
 
 # Node.js
+**/node_modules/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/lerna-debug.log*
+**/.pnpm-debug.log*
+**/package-lock.json
+**/yarn.lock
+**/pnpm-lock.yaml
 frontend/node_modules/
 frontend/dist/
+frontend/build/
 frontend/.vite/
 frontend/.env
 frontend/.env.local
 frontend/.env.*.local
 frontend/coverage/
 frontend/.nyc_output/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.next/
+frontend/.nuxt/
+frontend/.output/
+frontend/.turbo/
 
 # IDE
 .idea/
@@ -44,10 +97,25 @@ frontend/.nyc_output/
 *.swo
 *~
 .DS_Store
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
 
 # Logs
 *.log
 logs/
+**/logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
 
 # OS
 Thumbs.db
@@ -60,7 +128,29 @@ voice-order-fastapi/app/data/orders/*.json
 # Temporary files
 *.tmp
 *.temp
+*.bak
+*.backup
+*.swp
+*~
 dummy
 dummy2
 dummy3
+
+# Build artifacts
+**/build/
+**/out/
+**/bin/
+**/obj/
+**/.gradle/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
 
