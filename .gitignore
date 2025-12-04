@@ -125,6 +125,17 @@ Thumbs.db
 *.test.json
 voice-order-fastapi/app/data/orders/*.json
 
+# Docker 배포에 불필요한 파일
+vercel.json
+frontend/Dockerfile
+voice-order-fastapi/Dockerfile
+frontend/nginx.conf
+voice-order-fastapi/*.bat
+voice-order-fastapi/README.md
+voice-order-fastapi/README-INSTALL.md
+voice-order-fastapi/app/static/
+menuimage/
+
 # Temporary files
 *.tmp
 *.temp

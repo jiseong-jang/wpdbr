@@ -550,7 +550,7 @@ const OrderDetail = () => {
                   <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: '#555' }}>
                     {/* 편집 모드가 아닐 때는 최신 customizedQuantities만 표시 */}
                     {Object.entries(item.customizedQuantities || {})
-                      .filter(([, qty]) => qty > 0)
+                      .filter(([, qty]): qty is number => typeof qty === 'number' && qty > 0)
                       .map(([code, qty], index) => (
                         <span key={code}>
                           {index > 0 && ', '}
@@ -688,7 +688,7 @@ const OrderDetail = () => {
                                   {Object.keys(prevQuantities).length > 0 ? (
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                                       {Object.entries(prevQuantities)
-                                        .filter(([, qty]) => qty > 0)
+                                        .filter(([, qty]): qty is number => typeof qty === 'number' && qty > 0)
                                         .map(([code, qty]) => (
                                           <div key={code} style={{ color: '#1e293b' }}>
                                             {getItemLabel(code)}: {qty}개
@@ -707,7 +707,7 @@ const OrderDetail = () => {
                                   {Object.keys(newQuantities).length > 0 ? (
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                                       {Object.entries(newQuantities)
-                                        .filter(([, qty]) => qty > 0)
+                                        .filter(([, qty]): qty is number => typeof qty === 'number' && qty > 0)
                                         .map(([code, qty]) => (
                                           <div key={code} style={{ color: '#1e293b' }}>
                                             {getItemLabel(code)}: {qty}개

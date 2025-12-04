@@ -19,12 +19,14 @@ FROM maven:3.9-eclipse-temurin-17 AS backend-builder
 WORKDIR /app/backend
 
 # 백엔드 빌드
+# pom.xml만 먼저 복사하여 의존성 캐시 최적화
 COPY backend/pom.xml .
-# 의존성 다운로드 (캐시 최적화)
 RUN mvn dependency:go-offline -B
-# 소스 코드 복사 및 빌드
+# 소스 코드 복사
 COPY backend/src ./src
-RUN mvn clean package -DskipTests
+# 컴파일 확인 후 패키징
+RUN mvn compile -B
+RUN mvn package -DskipTests -B
 
 # 최종 런타임 스테이지
 FROM ubuntu:22.04
@@ -61,7 +63,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 # application.yml 복사 (환경 변수로 대체되지만 기본 구조는 필요)
 RUN mkdir -p /app/backend/src/main/resources
-COPY backend/src/main/resources/application.yml.example /app/backend/src/main/resources/application.yml
+COPY backend/src/main/resources/application.yml /app/backend/src/main/resources/application.yml
 
 # Supervisor 설정
 RUN mkdir -p /var/log/supervisor

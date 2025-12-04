@@ -73,7 +73,7 @@ const Register = () => {
   const validatePassword = async () => {
     if (formData.password && formData.confirmPassword) {
       try {
-        const response = await authApi.validatePassword(formData.password, formData.confirmPassword)
+        await authApi.validatePassword(formData.password, formData.confirmPassword)
         setError('')
       } catch (err: any) {
         setError(err.message || '비밀번호가 일치하지 않습니다')
@@ -272,7 +272,6 @@ const Register = () => {
               required
               style={inputStyle}
               onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
             />
           </div>
           <div>

@@ -1,0 +1,38 @@
+# Maven
+target/
+.mvn/
+mvnw
+mvnw.cmd
+.classpath
+.project
+.settings/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+application.yml
+application.properties
+application-*.yml
+application-*.properties
+
+# OS
+Thumbs.db
+.DS_Store
+
