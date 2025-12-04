@@ -1,0 +1,18 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-04t06-20-50-953219",
+  "confirmedAt": "2025-12-04T06:20:50.953219",
+  "summary": {
+    "customerName": "홍길동",
+    "customerAddress": null,
+    "menuName": "발렌타인 디너, 잉글리시 디너",
+    "menuStyle": "심플 스타일, 디럭스 스타일",
+    "menuItems": "와인(병)=1, 스테이크=1, 에그 스크램블=2, 베이컨=2, 기본 빵=2, 스테이크=2, 냅킨=1, 작은 하트 모양과 큐피드가 장식된 접시=1",
+    "deliveryTime": "2025-12-08T16:00:00",
+    "orderId": "order-2025-12-04t06-20-50-953219",
+    "orderTime": "2025-12-04T06:20:50.953219",
+    "quantity": null,
+    "couponCode": null,
+    "useCoupon": null
+  }
+}

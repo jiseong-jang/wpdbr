@@ -1,0 +1,18 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-02t09-49-07-360043",
+  "confirmedAt": "2025-12-02T09:49:07.360043",
+  "summary": {
+    "customerName": "어머니",
+    "customerAddress": null,
+    "menuName": "프렌치 디너",
+    "menuStyle": "디럭스 스타일",
+    "menuItems": "커피=1잔, 와인=1잔, 샐러드=1개, 스테이크=7개",
+    "deliveryTime": "2025-12-09T01:00:00",
+    "orderId": "order-2025-12-02t09-49-07-360043",
+    "orderTime": "2025-12-02T09:49:07.360043",
+    "quantity": null,
+    "couponCode": null,
+    "useCoupon": null
+  }
+}

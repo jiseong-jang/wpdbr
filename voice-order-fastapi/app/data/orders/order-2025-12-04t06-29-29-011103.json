@@ -1,0 +1,26 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-04t06-29-29-011103",
+  "confirmedAt": "2025-12-04T06:29:29.011103",
+  "summary": {
+    "customerName": "홍길동",
+    "customerAddress": null,
+    "menuName": "프렌치 디너",
+    "menuStyle": "디럭스 스타일",
+    "menuItems": "커피=3잔, 와인=3잔, 샐러드=3개, 스테이크=3개",
+    "deliveryTime": "2025-12-09T00:00:00",
+    "orderId": "order-2025-12-04t06-29-29-011103",
+    "orderTime": "2025-12-04T06:29:29.011103",
+    "quantity": 3,
+    "couponCode": null,
+    "useCoupon": null,
+    "orderItems": [
+      {
+        "menuName": "프렌치 디너",
+        "menuStyle": "디럭스 스타일",
+        "menuItems": "커피=3잔, 와인=3잔, 샐러드=3개, 스테이크=3개",
+        "quantity": 3
+      }
+    ]
+  }
+}

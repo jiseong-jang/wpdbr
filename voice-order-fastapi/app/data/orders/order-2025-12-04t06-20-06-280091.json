@@ -1,0 +1,18 @@
+{
+  "orderType": "주문확정",
+  "orderId": "order-2025-12-04t06-20-06-280091",
+  "confirmedAt": "2025-12-04T06:20:06.280091",
+  "summary": {
+    "customerName": "장지성",
+    "customerAddress": null,
+    "menuName": "발렌타인 디너와 잉글리시 디너",
+    "menuStyle": "디럭스 스타일",
+    "menuItems": "와인(병)=1, 스테이크=1, 에그 스크램블=2, 베이컨=2, 기본 빵=2, 스테이크=2",
+    "deliveryTime": "2025-12-08T16:00:00",
+    "orderId": "order-2025-12-04t06-20-06-280091",
+    "orderTime": "2025-12-04T06:20:06.280091",
+    "quantity": 3,
+    "couponCode": null,
+    "useCoupon": false
+  }
+}
