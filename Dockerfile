@@ -20,6 +20,9 @@ WORKDIR /app/backend
 
 # 백엔드 빌드
 COPY backend/pom.xml .
+# 의존성 다운로드 (캐시 최적화)
+RUN mvn dependency:go-offline -B
+# 소스 코드 복사 및 빌드
 COPY backend/src ./src
 RUN mvn clean package -DskipTests
 
