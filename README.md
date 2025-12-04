@@ -51,11 +51,16 @@ wpdbr/
 
 ### 1. 데이터베이스 설정
 
+**로컬 개발 환경:**
 MySQL 데이터베이스를 생성합니다:
 
 ```sql
 CREATE DATABASE mrdinner CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
+
+**배포 환경:**
+- AivenDB 사용 시: [AIVENDB_SETUP.md](AIVENDB_SETUP.md) 참조
+- PlanetScale 사용 시: PlanetScale 대시보드에서 데이터베이스 생성
 
 > **기존 DB에서 한글이 깨질 때**
 > 1. 데이터베이스/테이블 문자셋을 강제로 UTF-8로 변경합니다.
@@ -239,7 +244,7 @@ npm run dev
 - **백엔드**: Render Web Service (Spring Boot)
 - **프론트엔드**: Render Static Site (React)
 - **음성인식 API**: Render Web Service (FastAPI)
-- **데이터베이스**: PlanetScale MySQL
+- **데이터베이스**: AivenDB MySQL (또는 PlanetScale)
 - 각 서비스를 독립적으로 관리하고 스케일링 가능
 
 #### 방법 2: Docker 단일 컨테이너 배포 🐳
@@ -260,7 +265,15 @@ npm run dev
    git push origin main
    ```
 
-2. **PlanetScale 데이터베이스 생성**
+2. **데이터베이스 생성**
+   
+   **옵션 A: AivenDB (추천)**
+   - [Aiven](https://aiven.io/)에서 무료 계정 생성
+   - MySQL 서비스 생성
+   - 연결 정보 확인 (Host, Port, Username, Password, Database name)
+   - 자세한 설정 방법은 [AIVENDB_SETUP.md](AIVENDB_SETUP.md) 참조
+   
+   **옵션 B: PlanetScale**
    - [PlanetScale](https://planetscale.com/)에서 무료 계정 생성
    - 새 데이터베이스 생성
    - 연결 정보 확인 (Host, Username, Password, Database name)
@@ -283,7 +296,10 @@ npm run dev
 3. **환경 변수 설정**
    Render 대시보드의 "Environment" 탭에서 다음 변수들을 추가:
    ```env
-   SPRING_DATASOURCE_URL=jdbc:mysql://[HOST]:3306/[DATABASE]?useSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
+   # AivenDB 사용 시 (SSL 필수)
+   SPRING_DATASOURCE_URL=jdbc:mysql://[HOST]:[PORT]/[DATABASE]?useSSL=true&requireSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
+   # PlanetScale 사용 시
+   # SPRING_DATASOURCE_URL=jdbc:mysql://[HOST]:3306/[DATABASE]?useSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
    SPRING_DATASOURCE_USERNAME=[USERNAME]
    SPRING_DATASOURCE_PASSWORD=[PASSWORD]
    JWT_SECRET=[최소 32자 이상의 랜덤 문자열]
@@ -394,7 +410,15 @@ npm run dev
    git push origin main
    ```
 
-2. **PlanetScale 데이터베이스 생성**
+2. **데이터베이스 생성**
+   
+   **옵션 A: AivenDB (추천)**
+   - [Aiven](https://aiven.io/)에서 무료 계정 생성
+   - MySQL 서비스 생성
+   - 연결 정보 확인 (Host, Port, Username, Password, Database name)
+   - 자세한 설정 방법은 [AIVENDB_SETUP.md](AIVENDB_SETUP.md) 참조
+   
+   **옵션 B: PlanetScale**
    - [PlanetScale](https://planetscale.com/)에서 무료 계정 생성
    - 새 데이터베이스 생성
    - 연결 정보 확인 (Host, Username, Password, Database name)
@@ -419,8 +443,10 @@ npm run dev
    Render 대시보드의 "Environment" 탭에서 다음 변수들을 추가:
 
    ```env
-   # 데이터베이스 (PlanetScale)
-   SPRING_DATASOURCE_URL=jdbc:mysql://[HOST]:3306/[DATABASE]?useSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
+   # 데이터베이스 (AivenDB 사용 시 - SSL 필수)
+   SPRING_DATASOURCE_URL=jdbc:mysql://[HOST]:[PORT]/[DATABASE]?useSSL=true&requireSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
+   # 데이터베이스 (PlanetScale 사용 시)
+   # SPRING_DATASOURCE_URL=jdbc:mysql://[HOST]:3306/[DATABASE]?useSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
    SPRING_DATASOURCE_USERNAME=[USERNAME]
    SPRING_DATASOURCE_PASSWORD=[PASSWORD]
    
@@ -471,20 +497,29 @@ npm run dev
   - [Fly.io](https://fly.io/) (무료 티어, sleep 없음)
   - [Render 유료 플랜](https://render.com/pricing) ($7/월부터 sleep 없음)
 
-#### PlanetScale 무료 티어
-- ✅ **무료**: 월 $0
+#### 데이터베이스 무료 티어 옵션
+
+**AivenDB (추천)**
+- ✅ **무료**: 신규 사용자 무료 크레딧 제공
+- ⚠️ **제한**: 크레딧 소진 시 서비스 중단
+- 💡 **장점**: MySQL/PostgreSQL 지원, SSL 자동 설정, 우수한 대시보드
+- 📖 **설정 가이드**: [AIVENDB_SETUP.md](AIVENDB_SETUP.md) 참조
+
+**PlanetScale**
+- ✅ **무료**: 월 $0 (현재 무료 티어 종료됨)
 - ⚠️ **제한**: 데이터베이스 크기 5GB
 - ⚠️ **제한**: 연결 수 제한
-- 💡 **대안**:
-  - [Supabase](https://supabase.com/) (PostgreSQL, 무료 티어, 500MB)
-  - [Neon](https://neon.tech/) (PostgreSQL, 무료 티어, 3GB)
-  - [Railway](https://railway.app/) (MySQL/PostgreSQL, 무료 크레딧)
+
+**기타 대안**:
+- [Supabase](https://supabase.com/) (PostgreSQL, 무료 티어, 500MB)
+- [Neon](https://neon.tech/) (PostgreSQL, 무료 티어, 3GB)
+- [Railway](https://railway.app/) (MySQL/PostgreSQL, 무료 크레딧)
 
 ### 데이터베이스 초기화
 
 배포 후 첫 실행 시 `DataInitializer`가 자동으로 초기 데이터를 생성합니다. 만약 수동으로 초기화해야 한다면:
 
-1. PlanetScale 대시보드에서 SQL 콘솔 열기
+1. 데이터베이스 대시보드에서 SQL 콘솔 열기 (AivenDB 또는 PlanetScale)
 2. `backend/sql/reset_menu_data.sql` 파일의 내용 실행 (있는 경우)
 3. 또는 백엔드 애플리케이션을 재시작하여 자동 초기화
 
@@ -548,9 +583,12 @@ Render 무료 티어의 sleep 문제를 해결하려면:
 - URL에 프로토콜(`https://`)이 포함되어 있는지 확인
 
 **데이터베이스 연결 오류**:
-- PlanetScale 연결 정보 확인
-- SSL 설정 확인 (PlanetScale은 SSL 필수)
+- 데이터베이스 연결 정보 확인 (AivenDB 또는 PlanetScale)
+- SSL 설정 확인 (AivenDB와 PlanetScale은 SSL 필수)
+  - AivenDB: `useSSL=true&requireSSL=true` 옵션 필수
+  - PlanetScale: `useSSL=true` 옵션 필수
 - 방화벽 설정 확인
+- AivenDB 사용 시 포트 번호 확인 (보통 25060 또는 3306)
 
 **음성인식 API 오류**:
 - OpenAI API 키가 올바르게 설정되었는지 확인

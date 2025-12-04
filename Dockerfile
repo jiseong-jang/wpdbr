@@ -67,7 +67,7 @@ RUN mkdir -p /app/backend/src/main/resources && \
   application:\n\
     name: mrdinner-backend\n\
   datasource:\n\
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/mrdinner?useSSL=false&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci}\n\
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/mrdinner?useSSL=true&requireSSL=true&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci}\n\
     username: ${SPRING_DATASOURCE_USERNAME:root}\n\
     password: ${SPRING_DATASOURCE_PASSWORD:jisung727}\n\
     driver-class-name: com.mysql.cj.jdbc.Driver\n\
